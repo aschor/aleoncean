@@ -39,19 +39,19 @@ public abstract class UserData4BSTeachIn extends UserData4BS {
     }
 
     public byte getFunc() {
-        return (byte) getDataRange(3, 7, 3, 2);
+        return (byte) getDataRange(8, 7, 8, 2);
     }
 
     public void setFunc(final byte func) {
-        setDataRange(func, 3, 7, 3, 2);
+        setDataRange(func, 8, 7, 8, 2);
     }
 
     public byte getType() {
-        return (byte) getDataRange(3, 1, 2, 3);
+        return (byte) getDataRange(8, 1, 7, 3);
     }
 
     public void setType(final byte type) {
-        setDataRange(type, 3, 1, 2, 3);
+        setDataRange(type, 8, 1, 7, 3);
     }
 
     public short getManufacturerId() {
