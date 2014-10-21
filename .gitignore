@@ -13,3 +13,7 @@ hs_err_pid*
 
 # Build products
 /target/
+
+# IDEA Intellij files
+*.iml
+.idea/
