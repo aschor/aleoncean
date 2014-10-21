@@ -54,6 +54,11 @@ public class USB300 implements ESP3Connector {
     USB300Writer writer;
     BlockingQueue<byte[]> outputQueue;
 
+    public USB300() {
+        inputQueue = new LinkedBlockingQueue<byte[]>();
+        inputQueueResponse = new LinkedBlockingQueue<byte[]>();
+    }
+
     @Override
     public boolean connect(final String device) {
         assert serialPort == null;
