@@ -12,6 +12,8 @@ package eu.aleon.aleoncean.util;
 
 public class Bits {
 
+    final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
+
     public static boolean isBitSet(byte b, int pos) {
         return (((b & 0xFF) >>> pos) & 1) == 1;
     }
@@ -210,6 +212,21 @@ public class Bits {
         final int endBit = 7 - (absoluteEndBit % 8);
 
         setBitsOfBytes(value, data, startByte, startBit, endByte, endBit);
+    }
+
+    public static String bytesToHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+
+        for ( int j = 0; j < bytes.length; j++ ) {
+            int v = bytes[j] & 0xFF;
+            sb.append(hexArray[v >>> 4]);
+            sb.append(hexArray[v & 0x0F]);
+
+            if(j + 1 < bytes.length)
+                sb.append(" ");
+        }
+
+        return sb.toString();
     }
 
     private Bits() {
