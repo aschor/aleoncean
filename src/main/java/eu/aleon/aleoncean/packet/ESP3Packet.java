@@ -12,6 +12,7 @@ package eu.aleon.aleoncean.packet;
 
 import eu.aleon.aleoncean.packet.response.Response;
 import eu.aleon.aleoncean.packet.response.UnknownResponseException;
+import eu.aleon.aleoncean.util.Bits;
 import eu.aleon.aleoncean.util.CRC8;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -233,7 +234,7 @@ public class ESP3Packet {
 
         return String.format(
                 "ESP3Packet{packetType=0x%02X, dataLen=%d, optionalDataLen=%d, data=%s, optionalData=%s}",
-                getPacketType(), rawData.length, rawOptionalData.length, Arrays.toString(rawData), Arrays.toString(rawOptionalData)
+                getPacketType(), rawData.length, rawOptionalData.length, "[" + Bits.bytesToHex(rawData) + "]", "[" + Bits.bytesToHex(rawOptionalData) + "]"
         );
     }
 
